@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="ifdemo">
+<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+   <script>
+    var myvar = angular.module("ifdemo",[]);
+    myvar.controller("ifctrl-ChetanPatil",function($scope){
+        $scope.status = true;
+        $scope.show = function(){
+            $scope.status = true;
+        }
+        $scope.hide = function(){
+            $scope.status = false;
+        }
+
+    });
+   </script>
+</head>
+<body>
+    <div ng-controller="ifctrl-ChetanPatil">
+        <p ng-if="status">this is my message</p>
+        <button ng-click="show()">show</button><br>
+        <button ng-click="hide()">Hide</button>
+    </div>
+</body>
+</html>
