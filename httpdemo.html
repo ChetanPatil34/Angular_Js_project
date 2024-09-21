@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="httpdemo">
+<head>
+    <title>$resource Services Demo Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <script>
+        var myvar = angular.module("httpdemo",[]);
+  
+        myvar.controller("myctrl-chetanpatil",function($scope,$http){
+            $scope.data = [];
+            $scope.error='';
+            $scope.getData=function(){
+                 $scope.data = $http.get("https://jsonplaceholder.typicode.com/users")
+                .then(
+                    function(response){
+                        $scope.data = response.data
+                    },function(error){
+                        $scope.error=error.status
+                    });
+                
+            }
+        });
+  </script>
+</head>
+<body>
+    <div ng-controller="myctrl-chetanpatil">
+    
+        <button ng-click="getData()">Get Data</button>
+        <li ng-repeat="user in data">Data :{{user.name}} </li>
+        <p>Error: {{ error }} </p>
+    </div>
+</body>
+</html>
