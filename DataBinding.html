@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="DataBinding">
+<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+   <script>
+    var myvar = angular.module("DataBinding",[]);
+    myvar.controller("myCtrl-ChetanPatil",function($scope){
+        $scope.name="chetan";
+        $scope.number="1234";
+
+    
+});
+
+   </script>
+</head>
+<body>
+    <div ng-controller="myCtrl-ChetanPatil">
+        <div>
+            Enter the Name:<input type="text" ng-model="name">
+            Enter the Number:<input type="text"ng-model="number">
+            <p>My Name is{{name}}</p>
+            <p>My Number is{{number}}</p>
+        </div>
+
+    </div>
+</body>
+</html>
