@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="loginapp">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script>
+    var myvar = angular.module("loginapp",[]);
+    myvar.controller("loginctrl-chetanpatil",function($scope){
+
+        $scope.message='';
+        $scope.uservalidation='';
+        $scope.passwordvalidation='';
+        
+        $scope.submitform=function(){
+            if($scope.username===""){
+               $scope.username="Please Enter the Username";
+           }else if($scope.password===""){
+               $scope.passwordvalidation="Please Enter the Password";
+           }else if($scope.username==="chetan" && $scope.password==="123"){
+               $scope.message="Welcome Admin";
+           }else{
+               $scope.message="Sorry !!! Invalid User.";
+           }
+        };
+
+    });
+</script>
+</head>
+<body>
+    <div ng-controller="loginctrl-chetanpatil">
+        Login Form
+        <form ng-submit="submitform()">
+            Enter the Username : <input type="text" ng-model="username" required><br>
+            <p>{{uservalidation}}</p>
+            Enter the Paaword : <input type="text" ng-model="password" required><br>
+            <p>{{passwordvalidation}}</p>
+            <button type="submit">Submit</button>
+            <p>{{message}}</p>
+            
+        </form>
+    </div>
+    
+</body>
+</html>
