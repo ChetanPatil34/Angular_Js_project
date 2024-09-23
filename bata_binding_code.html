@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="databinding">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        var myvar=angular.module("databinding",[]);
+        myvar.controller("myctrl",function($scope){
+
+            $scope.show=function(){
+
+           document.write("Name :",$scope.name,"<br>");
+            document.write("Password :",$scope.password);
+
+            }
+
+        });
+    </script>
+
+</head>
+<body>
+    <div ng-controller="myctrl">
+        
+        Enter the User Name:
+        <input type="text" ng-model="name"><br>
+        Enter the Password:
+        <input type="text" ng-model="password">
+
+        <button ng-Click="show()">Submit</button>
+
+
+        <p>User name:{{name}}</p>
+        <p>Password :{{password}}</p>
+
+    </div>
+</body>
+</html>
