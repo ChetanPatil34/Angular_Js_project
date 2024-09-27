@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="ifdemo1">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+    var myvar = angular.module("ifdemo1",[]);
+    myvar.controller("ifctrl",function($scope){
+        $scope.status = true;
+
+        $scope.show = function(){
+            $scope.status = true;
+        }
+        $scope.hide = function(){
+            $scope.status = false;
+        }
+
+    });
+</script>
+
+</head>
+<body>
+    <div ng-controller="ifctrl">
+        <p ng-if="status">This is my Massage</p>
+        <button ng-Click="show()">Show</button>
+        <button ng-Click="hide()">Hide</button>
+
+    </div>
+    
+</body>
+</html>
